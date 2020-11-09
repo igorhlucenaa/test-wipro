@@ -1,3 +1,18 @@
+# QUESTIONÁRIO SQL
+# 1
+SELECT s.dsStatus , 
+       count( p.idProcesso ) as QtdProcesso
+FROM tb_Processo p
+INNER JOIN tb_Status s
+on p.idStatus = b.idStatus
+GROUP BY s.dsStatus
+
+# 2
+
+
+# 3
+# 4
+
 # WiproTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
