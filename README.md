@@ -23,7 +23,7 @@ GROUP BY p.DtEncerramento
 HAVING count( p.idProcesso ) > 5
 
 ## 4
-SELECT STRZERO(nroProceso,12) as SProcesso
+SELECT LPAD(nroProceso,12,'0') as SProcesso
 FROM tb_processo
 
 
