@@ -1,4 +1,11 @@
 <div class="container">
+  <div class="row row-alert" *ngIf="erro == true">
+    <div class="col">
+      <div class="alert alert-danger" role="alert">
+        {{msgErro}}
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-mg col-lg-6 col-md-6 col-sm-12">
       <label>

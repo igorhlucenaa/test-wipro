@@ -9,6 +9,8 @@ import { DataService } from '../providers/data/data.service';
 export class ChartComponent implements OnInit {
   dataPopular
   dataRated
+  erro = false
+  msgErro = ''
 
   // PIE CHART
   public pieChartLabels = ['Sales Q1', 'Sales Q2', 'Sales Q3', 'Sales Q4'];
@@ -55,7 +57,7 @@ export class ChartComponent implements OnInit {
 
 
       }, err => {
-        console.log(err);
+        this.error('Erro ao buscar dados!')
       })
   }
 
@@ -70,8 +72,12 @@ export class ChartComponent implements OnInit {
         }
 
       }, err => {
-        console.log(err)
+        this.error('Erro ao buscar dados!')
       })
   }
 
+  error(msg) {
+    this.erro = true
+    this.msgErro = msg
+  }
 }
