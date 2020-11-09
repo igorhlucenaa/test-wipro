@@ -1,6 +1,6 @@
 # QUESTIONÁRIO SQL
 ## 1
-SELECT s.dsStatus , 
+SELECT s.dsStatus ,
        count( p.idProcesso ) as QtdProcesso
 FROM tb_Processo p
 INNER JOIN tb_Status s
@@ -8,11 +8,23 @@ on p.idStatus = s.idStatus
 GROUP BY s.dsStatus
 
 ## 2
-
+SELECT p.idProcesso , MAX ( a.dtAndamento ) as MaxData
+FROM tb_Processo p
+INNER JOIN tb_Andamento a
+ON p.idProcesso = a.idProcesso
+WHERE year(p.DtEncerramento) = 2013
+GROUP BY p.idProcesso
+ORDER BY p.idProcesso
 
 ## 3
-## 4
+SELECT p.DtEncerramento , count( p.idProcesso ) as Qtd
+FROM tb_Processo p
+GROUP BY p.DtEncerramento
+HAVING count( p.idProcesso ) > 5
 
+## 4
+SELECT STRZERO(nroProceso,12) as SProcesso
+FROM tb_processo
 
 
 # WiproTest
