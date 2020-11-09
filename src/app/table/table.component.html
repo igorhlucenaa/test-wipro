@@ -1,0 +1,65 @@
+<div class="container animate__animated animate__fadeInUp">
+  <div class="row">
+    <div class="col">
+      <form>
+        <div class="form-group">
+          <input class="form-control" (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
+        </div>
+      </form>
+
+      <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource" matSort multiTemplateDataRows>
+
+          <ng-container class="container-btn" matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Título </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+          </ng-container>
+
+          <ng-container class="container-btn" matColumnDef="overview">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Gênero </mat-header-cell>
+            <mat-cell *matCellDef="let element" > 
+              <div *ngFor="let item of this.genres">
+                <p  *ngIf="item.id == element.genre_ids[0]">{{item.name}}</p>
+
+              </div>
+             </mat-cell>
+          </ng-container>
+
+          <ng-container class="container-btn" matColumnDef="vote_average">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nota </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.vote_average}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+              <div class="example-element-detail"
+                [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'"
+                *ngIf="element.recordStatus === I_INVALID_RECORD_INDICATOR">
+                <table width="100%">
+                  <tr>
+                    <td> <img class="poster" [src]="renderImg(element.poster_path)" />
+                    </td>
+                    <td>
+                      <p class="desc">{{element.overview}}</p>
+                    </td>
+                  </tr>
+
+                </table>
+              </div>
+            </td>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row"
+            [class.example-expanded-row]="expandedElement === row" (click)="expandedElement = row"></mat-row>
+          <mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row">
+          </mat-row>
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+      </div>
+
+    </div>
+  </div>
+</div>

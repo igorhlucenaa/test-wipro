@@ -1,0 +1,63 @@
+.poster {
+  width: 70px;
+}
+
+.desc {
+  margin-left: 10px;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.container-btn:hover {
+  background: #efefef !important;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.item:hover {
+  background-color: #efefef;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+form {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+mat-row, mat-footer-row {
+   min-height: 0px; 
+}
+
+mat-paginator {
+  margin-bottom: 20px;
+}

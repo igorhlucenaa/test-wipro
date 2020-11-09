@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-mg col-lg-6 col-md-6 col-sm-12">
+      <label>
+        <h4>Filmes mais populares no TMDB</h4>
+      </label>
+      <div style="display: block">
+        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="chartType"></canvas>
+      </div>
+    </div>
+    <div class="col-mg col-lg-6 col-md-6 col-sm-12">
+      <label>
+        <h4>Filmes mais mais bem avaliados no TMDB</h4>
+      </label>
+      <div style="display: block">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+          [chartType]="barChartType">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>
